@@ -1,0 +1,39 @@
+
+
+<div ng-app="myApp" ng-controller="SignUpController">
+    <p>This is the partial for signUp.  </p>
+
+
+    <form name="userForm">
+        <label>First Name: </label>
+        <input  class="ng-dirty ng-valid-parse ng-valid-required ng-valid-email ng-submitted ng-invalid ng-invalid-minlength ng-valid-maxlength"
+                type="text" name="firstName" ng-model="user.firstName" ng-minlength="3" ng-maxlength="15" required/>
+        <div ng-messages="userForm.firstName.$error">
+            <p ng-message="minlength">Your first name is too short.</p>
+            <p ng-message="maxlength">Your first name is too long.</p>
+            <p ng-message="required">Your first name is required.</p>
+        </div>
+        <label>Last  Name: </label>
+        <input type="text" name="lastName" ng-model="user.lastName" ng-minlength="3" ng-maxlength="15" required/>
+        <div ng-messages="userForm.lastName.$error">
+            <p ng-message="maxlength">Your last Name is too short.</p>
+            <p ng-message="maxlength">Your first name is too long.</p>
+            <p ng-message="required">Your first name is required.</p>
+        </div>
+        <label>Email: </label>
+        <input type="email"  name="email" ng-model="user.email" required/>
+        <div ng-messages="userForm.email.$error">
+            <p ng-message="required">Your email is required.</p>
+            <p ng-message="recordAvailable">This email addres is already in use</p>
+        </div>
+
+        <button ng-click="reset()">Reset</button>
+
+        <button ng-click="saveUser()">Save</button>
+<!--
+        <p>form = {{user}} </p>
+        <p>default = {{defaultValues}}</p>
+        <p>length = {{listUsers}}</p> -->
+        <p>message = {{message}}
+    </form>
+</div>
